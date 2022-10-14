@@ -1,0 +1,28 @@
+{
+   "name": "app-bazadanowa",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "devDependencies": {
+      "@types/node": "^16.11.10",
+      "ts-node": "10.7.0",
+      "typescript": "4.5.2"
+   },
+   "dependencies": {
+      "compression": "^1.7.4",
+      "cookie-parser": "^1.4.6",
+      "cors": "^2.8.5",
+      "express": "^4.18.2",
+      "express-validator": "^6.14.2",
+      "multer": "^1.4.5-lts.1",
+      "pg": "^8.4.0",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.3.10"
+   },
+   "scripts": {
+      "start": "ts-node src/data-source.ts",
+      "typeorm": "typeorm-ts-node-commonjs",
+      "start:compute": "ts-node --transpile-only -r dotenv/config server",
+      "dev": "nodemon --exec \"npm run start:compute\""
+   }
+}
