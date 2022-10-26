@@ -26,7 +26,7 @@ export class Rezerwacja {
   idUser: number;
 
   @Column()
-  idJedzenja: number;
+  idJedzenie: number;
 
   @Column()
   dataRezerwacji: Date;
@@ -53,6 +53,6 @@ export class Rezerwacja {
   pokoj: Pokoj;
 
   @ManyToOne(() => Jedzenie, (jedzenie) => jedzenie.rezerwacja)
-  @JoinColumn({ name: "idJedzenja", referencedColumnName: "idJedzenja" })
+  @JoinColumn({ name: "idJedzenie", referencedColumnName: "idJedzenie" })
   jedzenie: Jedzenie;
 }
