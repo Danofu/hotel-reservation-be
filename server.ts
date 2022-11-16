@@ -4,18 +4,26 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { RouteConfig } from './src/utils/routeConfig';
+import passport from 'passport'
 
 const app = express();
 
   const routes: Array<RouteConfig> = [];
   const UsersRoute =  require('./src/routes/usersRoutes');
+  const AuthRoute =  require('./src/routes/authRoutes');
   app.use(cookieParser());
   app.enable('trust proxy');
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(cors());
+  /**
+ * -------------- PASSPORT AUTHENTICATION ----------------
+ */
+ /* app.use(passport.initialize());
+  app.use(passport.session());*/
   app.options('*', cors());
   routes.push(new UsersRoute(app));
+  routes.push(new AuthRoute(app));
 
   const PORT = 8081;
 
