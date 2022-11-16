@@ -24,6 +24,7 @@ export class AuthRoute extends RouteConfig {
       .route('/api/auth/login')
       .post(
         body('email').isEmail(),
+        body('password').isString(),
         requestValidationMiddleware.verifyBodyOrQueryFieldsErrors,
         controller.login,
       );

@@ -6,6 +6,7 @@ import * as bycrypt from 'bcryptjs';
 
 const userRepository = AppDataSource.getRepository(User);
 
+//function of validation
 const validate = (email: string, password: string) => {
   let message = null;
   let isValidated = false;
@@ -23,6 +24,7 @@ const validate = (email: string, password: string) => {
   return { message, isValidated: true };
 };
 
+//registration users in hotel database
 export const register = async (
   req: Request<
     {},
@@ -67,6 +69,7 @@ export const register = async (
   }
 };
 
+//authentification users in hotel database
 export const login = async (
   req: Request<{}, {}, { email: string; password: string }>,
   res: Response,

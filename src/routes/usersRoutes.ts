@@ -14,6 +14,13 @@ export class UsersRoute extends RouteConfig {
       .route('/api/users')
       .get([controller.getAllusers]);
 
+      this.app
+      .route('/api/users/getUserById')
+      .get([
+        query('id').isInt(),
+        requestValidationMiddleware.verifyBodyOrQueryFieldsErrors,
+        controller.getUserById]);
+
     return this.app;
   }
 }
