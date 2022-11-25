@@ -11,6 +11,7 @@ const app = express();
   const routes: Array<RouteConfig> = [];
   const UsersRoute =  require('./src/routes/usersRoutes');
   const AuthRoute =  require('./src/routes/authRoutes');
+  const KategorjaRoute = require('./src/routes/kategorjaRoutes');
   app.use(cookieParser());
   app.enable('trust proxy');
   app.use(bodyParser.json());
@@ -24,6 +25,7 @@ const app = express();
   app.options('*', cors());
   routes.push(new UsersRoute(app));
   routes.push(new AuthRoute(app));
+  routes.push(new KategorjaRoute(app));
 
   const PORT = 8081;
 
