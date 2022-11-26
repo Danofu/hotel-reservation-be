@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import { getEncryptedToken } from "../utils/common";
 import { AppDataSource } from "../data-source";
 import { User } from "../entity/user";
-import * as bycrypt from 'bcryptjs';
+import * as bycrypt from "bcryptjs";
+import { CreateUserRequestDTO } from "./users";
 
 const userRepository = AppDataSource.getRepository(User);
 
@@ -12,12 +13,12 @@ const validate = (email: string, password: string) => {
   let isValidated = false;
 
   if (!email) {
-    message = 'Email is required';
+    message = "Email is required";
     return { message, isValidated };
   }
 
   if (!password) {
-    message = 'Password is required';
+    message = "Password is required";
     return { message, isValidated };
   }
 
@@ -29,17 +30,12 @@ export const register = async (
   req: Request<
     {},
     {},
-    {
-      password: string;
-      firstname: string;
-      lastname: string;
-      email: string;
-    }
+    CreateUserRequestDTO
   >,
-  res: Response,
+  res: Response
 ) => {
   try {
-    const { password, firstname, lastname, email } = req.body;
+    const { password, first_name, last_name, email } = req.body;
 
     const user = await userRepository.findOne({ where: { email } });
 
@@ -54,25 +50,23 @@ export const register = async (
     const token = getEncryptedToken(email);
 
     await userRepository.save({
-      firstName: firstname,
-      lastName: lastname,
+      first_name,
+      last_name,
       password: encryptPass,
       access_token: token,
       email,
     });
 
-    res
-      .status(200)
-      .json({ message: 'User registered successfully' });
+    res.status(200).json({ message: "User registered successfully" });
   } catch (e) {
-    throw (e);
+    throw e;
   }
 };
 
 //authentification users in hotel database
 export const login = async (
   req: Request<{}, {}, { email: string; password: string }>,
-  res: Response,
+  res: Response
 ) => {
   try {
     const email: string = req.body.email.toLowerCase();
@@ -89,7 +83,7 @@ export const login = async (
 
     if (!user) {
       return res.status(400).json({
-        message: 'Incorrect email or password.',
+        message: "Incorrect email or password.",
       });
     }
 
@@ -97,7 +91,7 @@ export const login = async (
 
     if (!passwordResult) {
       return res.status(400).json({
-        message: 'Incorrect email or password.',
+        message: "Incorrect email or password.",
       });
     }
 
@@ -105,8 +99,8 @@ export const login = async (
 
     await userRepository.save({ id: user.id, access_token: token });
 
-    return res.send({ token, message: 'Logged in successfully' });
+    return res.send({ token, message: "Logged in successfully" });
   } catch (e) {
-   throw e;
+    throw e;
   }
 };

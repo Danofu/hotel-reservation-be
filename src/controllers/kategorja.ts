@@ -4,6 +4,7 @@ import { AppDataSource } from "../data-source";
 
 const kategorjaRepository = AppDataSource.getRepository(Kategorja);
 
+//get all rooms from DB hotel
 export const getAllPokoj = async (
   req: Request,
   res: Response
