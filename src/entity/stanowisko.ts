@@ -4,7 +4,7 @@ import { Pracowniki } from "./pracowniki";
 @Entity("stanowisko")
 export class Stanowisko {
   @PrimaryGeneratedColumn()
-  idStanowisko: number;
+  id: number;
 
   @Column()
   stanowisko: string;

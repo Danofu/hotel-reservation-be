@@ -12,16 +12,16 @@ import { Rezerwacja } from "./rezerwacja";
 @Entity("jedzenie")
 export class Jedzenie {
   @PrimaryGeneratedColumn() 
-  idJedzenie: number;
+  id: number;
 
   @Column()
-  idMenu: number;
+  id_menu: number;
 
   @Column()
-  iloscOsob: number;
+  ilosc_osob: number;
 
   @ManyToOne(() => Menu, (menu) => menu.jedzenie)
-  @JoinColumn({ name: "idMenu", referencedColumnName: "idMenu" })
+  @JoinColumn({ name: "id_menu", referencedColumnName: "id" })
   menu: Menu;
 
   @OneToMany(
