@@ -14,45 +14,45 @@ import { User } from "./user";
 @Entity("rezerwacja")
 export class Rezerwacja {
   @PrimaryGeneratedColumn()
-  idRezerwacja: number;
+  id: number;
 
   @Column()
-  idPokoj: number;
+  id_pokoj: number;
 
   @Column()
-  idPracownika: number;
+  id_pracownika: number;
 
   @Column()
-  idUser: number;
+  id_user: number;
 
   @Column()
-  idJedzenie: number;
+  id_jedzenie: number;
 
   @Column()
-  dataRezerwacji: Date;
+  data_rezerwacji: Date;
 
   @Column()
-  checkIn: Date;
+  check_in: Date;
 
   @Column()
-  checkOut: Date;
+  check_out: Date;
 
   @Column()
   suma: number;
 
   @ManyToOne(() => User, (user) => user.rezerwacja)
-  @JoinColumn({ name: "idUser", referencedColumnName: "id" })
+  @JoinColumn({ name: "id_user", referencedColumnName: "id" })
   user: User;
 
   @ManyToOne(() => Pracowniki, (pracownik) => pracownik.rezerwacja)
-  @JoinColumn({ name: "idPracownika", referencedColumnName: "idPracownika" })
+  @JoinColumn({ name: "id_pracownika", referencedColumnName: "id" })
   pracownik: Pracowniki;
 
   @ManyToOne(() => Pokoj, (pokoj) => pokoj.rezerwacja)
-  @JoinColumn({ name: "idPokoj", referencedColumnName: "idPokoj" })
+  @JoinColumn({ name: "id_pokoj", referencedColumnName: "id" })
   pokoj: Pokoj;
 
   @ManyToOne(() => Jedzenie, (jedzenie) => jedzenie.rezerwacja)
-  @JoinColumn({ name: "idJedzenie", referencedColumnName: "idJedzenie" })
+  @JoinColumn({ name: "id_jedzenie", referencedColumnName: "id" })
   jedzenie: Jedzenie;
 }

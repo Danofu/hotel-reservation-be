@@ -12,7 +12,7 @@ import { Stanowisko } from "./stanowisko";
 @Entity("pracowniki")
 export class Pracowniki {
   @PrimaryGeneratedColumn()
-  idPracownika: number;
+  id: number;
 
   @Column()
   nazwisko: number;
@@ -21,19 +21,19 @@ export class Pracowniki {
   imie: number;
 
   @Column()
-  dataUrodzenia: Date;
+  data_urodzenia: Date;
 
   @Column()
   wyksztalcenie: string;
 
   @Column()
-  idStanowisko: number;
+  id_stanowisko: number;
 
   @Column()
   pensja: number;
 
   @ManyToOne(() => Stanowisko, (stanowisko) => stanowisko.pracowniki)
-  @JoinColumn({ name: "idStanowisko", referencedColumnName: "idStanowisko" })
+  @JoinColumn({ name: "id_stanowisko", referencedColumnName: "id" })
   stanowisko: Stanowisko;
 
   @OneToMany(

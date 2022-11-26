@@ -9,7 +9,7 @@ import { Jedzenie } from "./jedzenie";
 @Entity("menu")
 export class Menu {
   @PrimaryGeneratedColumn()
-  idMenu: number;
+  id: number;
 
   @Column()
   nazwa: string;

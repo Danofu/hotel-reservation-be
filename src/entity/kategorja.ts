@@ -10,19 +10,19 @@ import { Pokoj } from "./pokoj";
 @Entity("kategorja")
 export class Kategorja {
   @PrimaryGeneratedColumn()
-  idKategorja: number;
+  id: number;
 
   @Column()
   kategorja: string;
 
   @Column()
-  iloscMiejsc: number;
+  ilosc_miejsc: number;
 
   @Column()
-  iloscMieszkan: number;
+  ilosc_mieszkan: number;
 
   @Column()
-  dodatkowaInformacja: string;
+  dodatkowa_informacja: string;
 
   @Column()
   cena: number;

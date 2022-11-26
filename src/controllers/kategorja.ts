@@ -13,9 +13,9 @@ export const getAllPokoj = async (
     {
       select: {
         kategorja: true,
-        iloscMiejsc: true,
-        iloscMieszkan: true,
-        dodatkowaInformacja: true,
+        ilosc_miejsc: true,
+        ilosc_mieszkan: true,
+        dodatkowa_informacja: true,
         cena: true,
       }
     }

@@ -13,13 +13,13 @@ import { Rezerwacja } from "./rezerwacja";
 @Entity("pokoj")
 export class Pokoj {
   @PrimaryGeneratedColumn()
-  idPokoj: number;
+  id: number;
 
   @Column()
-  idKategorja: number;
+  id_kategorja: number;
 
   @ManyToOne(() => Kategorja, (kategorja) => kategorja.pokoj)
-  @JoinColumn({ name: "idKategorja", referencedColumnName: "idKategorja" })
+  @JoinColumn({ name: "id_kategorja", referencedColumnName: "id" })
   kategorja: Kategorja;
 
   @OneToMany(
