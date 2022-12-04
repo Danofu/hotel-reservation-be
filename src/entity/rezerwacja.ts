@@ -3,12 +3,14 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  OneToMany,
   JoinColumn,
 } from "typeorm";
 import { Jedzenie } from "./jedzenie";
 import { Pokoj } from "./pokoj";
 import { Pracowniki } from "./pracowniki";
 import { User } from "./user";
+import { Zamowienie } from "./zamowienie";
 
 
 @Entity("rezerwacja")
@@ -26,7 +28,7 @@ export class Rezerwacja {
   id_user: number;
 
   @Column()
-  id_jedzenie: number;
+  id_zamowienia: number;
 
   @Column()
   data_rezerwacji: Date;
@@ -52,7 +54,13 @@ export class Rezerwacja {
   @JoinColumn({ name: "id_pokoj", referencedColumnName: "id" })
   pokoj: Pokoj;
 
-  @ManyToOne(() => Jedzenie, (jedzenie) => jedzenie.rezerwacja)
-  @JoinColumn({ name: "id_jedzenie", referencedColumnName: "id" })
-  jedzenie: Jedzenie;
+ /* @ManyToOne(() => Jedzenie, (jedzenie) => jedzenie.rezerwacja)
+  @JoinColumn({ name: "id_zamowienia", referencedColumnName: "id" })
+  jedzenie: Jedzenie;*/
+
+  @OneToMany(
+    () => Zamowienie,
+    (zamowienie) => zamowienie.rezerwacja,
+  )
+  zamowienie: Zamowienie[];
 }

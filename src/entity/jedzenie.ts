@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { Menu } from "./menu";
 import { Rezerwacja } from "./rezerwacja";
+import { Zamowienie } from "./zamowienie";
 
 @Entity("jedzenie")
 export class Jedzenie {
@@ -25,8 +26,8 @@ export class Jedzenie {
   menu: Menu;
 
   @OneToMany(
-    () => Rezerwacja,
-    (rezerwacja) => rezerwacja.jedzenie,
+    () => Zamowienie,
+    (zamowienie) => zamowienie.jedzenie,
   )
-  rezerwacja: Rezerwacja[];
+  zamowienie: Zamowienie[];
 }
