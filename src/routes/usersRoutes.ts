@@ -1,7 +1,7 @@
 import { Application } from 'express';
 import { RouteConfig } from '../utils/routeConfig';
 import * as controller from '../controllers/users';
-import { query } from 'express-validator';
+import { query, body } from 'express-validator';
 import requestValidationMiddleware from '../utils/body.validation.middleware';
 
 export class UsersRoute extends RouteConfig {
@@ -20,6 +20,14 @@ export class UsersRoute extends RouteConfig {
         query('id').isInt(),
         requestValidationMiddleware.verifyBodyOrQueryFieldsErrors,
         controller.getUserById]);
+
+      this.app
+        .route('/api/users/edit')
+        .post([
+          body('id').isInt(),
+          requestValidationMiddleware.verifyBodyOrQueryFieldsErrors,
+          controller.edit,
+        ]);
 
     return this.app;
   }
