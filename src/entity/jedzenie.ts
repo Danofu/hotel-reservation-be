@@ -8,12 +8,14 @@ import {
 } from "typeorm";
 import { Menu } from "./menu";
 import { Rezerwacja } from "./rezerwacja";
-import { Zamowienie } from "./zamowienie";
 
 @Entity("jedzenie")
 export class Jedzenie {
-  @PrimaryGeneratedColumn() 
+  @PrimaryGeneratedColumn()
   id: number;
+
+  @Column() 
+  id_rezerwacji: number;
 
   @Column()
   id_menu: number;
@@ -25,9 +27,8 @@ export class Jedzenie {
   @JoinColumn({ name: "id_menu", referencedColumnName: "id" })
   menu: Menu;
 
-  @OneToMany(
-    () => Zamowienie,
-    (zamowienie) => zamowienie.jedzenie,
-  )
-  zamowienie: Zamowienie[];
+  @ManyToOne(() => Rezerwacja, (rezerwacja) => rezerwacja.jedzenie)
+  @JoinColumn({ name: "id_rezerwacji", referencedColumnName: "id" })
+  rezerwacja: Rezerwacja;
+
 }

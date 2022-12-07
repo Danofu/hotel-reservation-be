@@ -15,8 +15,8 @@ export class AuthRoute extends RouteConfig {
       .post(
         body('email').isEmail(),
         body('password').isString(),
-        body('firstname').isString(),
-        body('lastname').isString(),
+        body('first_name').isString(),
+        body('last_name').isString(),
         requestValidationMiddleware.verifyBodyOrQueryFieldsErrors,
         controller.register);
 

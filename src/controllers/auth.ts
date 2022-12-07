@@ -31,15 +31,15 @@ export const register = async (
     {},
     {
       password: string;
-      firstname: string;
-      lastname: string;
+      first_name: string;
+      last_name: string;
       email: string;
     }
   >,
   res: Response,
 ) => {
   try {
-    const { password, firstname, lastname, email } = req.body;
+    const { password, first_name, last_name, email } = req.body;
 
     const user = await userRepository.findOne({ where: { email } });
 
@@ -54,8 +54,8 @@ export const register = async (
     const token = getEncryptedToken(email);
 
     await userRepository.save({
-      firstName: firstname,
-      lastName: lastname,
+      first_name,
+      last_Name: last_name,
       password: encryptPass,
       access_token: token,
       email,

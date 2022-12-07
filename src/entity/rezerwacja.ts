@@ -10,7 +10,6 @@ import { Jedzenie } from "./jedzenie";
 import { Pokoj } from "./pokoj";
 import { Pracowniki } from "./pracowniki";
 import { User } from "./user";
-import { Zamowienie } from "./zamowienie";
 
 
 @Entity("rezerwacja")
@@ -26,9 +25,6 @@ export class Rezerwacja {
 
   @Column()
   id_user: number;
-
-  @Column()
-  id_zamowienia: number;
 
   @Column()
   data_rezerwacji: Date;
@@ -59,8 +55,8 @@ export class Rezerwacja {
   jedzenie: Jedzenie;*/
 
   @OneToMany(
-    () => Zamowienie,
-    (zamowienie) => zamowienie.rezerwacja,
+    () => Jedzenie,
+    (jedzenie) => jedzenie.rezerwacja,
   )
-  zamowienie: Zamowienie[];
+  jedzenie: Jedzenie[];
 }

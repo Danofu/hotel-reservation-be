@@ -15,10 +15,10 @@ export class Pracowniki {
   id: number;
 
   @Column()
-  nazwisko: number;
+  nazwisko: string;
 
   @Column()
-  imie: number;
+  imie: string;
 
   @Column()
   data_urodzenia: Date;
