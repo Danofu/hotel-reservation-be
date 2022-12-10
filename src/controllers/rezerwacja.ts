@@ -19,7 +19,7 @@ export const rezarwacja = async (
       id_user: number;
       check_in: Date;
       check_out: Date;
-      menu?: string;
+      menu?: string[];
     }
   >,
   res: Response
@@ -53,27 +53,73 @@ export const rezarwacja = async (
     });
 
     if (req.body.menu) {
-      const menu = await menuRepository.findOne({
-        where: {
-          nazwa: req.body.menu,
-        },
-      });
+      req.body.menu.map(async (nazwa) => {
+        const menu: Menu = await menuRepository.findOne({
+          where: {
+            nazwa: nazwa,
+          },
+        });
 
-      suma += menu.cena;
+        suma += menu.cena;
 
-      await rezerwacjaRepository.update(
-        { id: rezerwacja.id },
-        { suma: suma }
-      );
+        await rezerwacjaRepository.update(
+          { id: rezerwacja.id },
+          { suma: suma }
+        );
 
-      await jedzenieRepository.save({
-        id_rezerwacji: rezerwacja.id,
-        id_menu: menu.id,
-        ilosc_osob: pokoj.kategorja.ilosc_miejsc
+        await jedzenieRepository.save({
+          id_rezerwacji: rezerwacja.id,
+          id_menu: menu.id,
+          ilosc_osob: pokoj.kategorja.ilosc_miejsc,
+        });
       });
     }
 
-    res.send(rezerwacja);
+    res.send({ message: "Reservation success!" });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getAllRezerwation = async (
+  req: Request<{}, {}, {}, { id_user: string }>,
+  res: Response
+) => {
+  try {
+    const { id_user } = req.query;
+    const reserwacja = await rezerwacjaRepository.find({
+      where: { id_user: parseInt(id_user) },
+      relations: {
+        pokoj: {
+          kategorja: true,
+        },
+        jedzenie: {
+          menu: true,
+        },
+      },
+    });
+    res.send(reserwacja);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const deleteRezerwationById = async (
+  req: Request<{}, {}, {}, { id_rezerwacji: string }>,
+  res: Response
+) => {
+  try {
+    const { id_rezerwacji } = req.query;
+
+    await jedzenieRepository.delete({
+      id_rezerwacji: parseInt(id_rezerwacji),
+    });
+
+    await rezerwacjaRepository.delete({
+      id: parseInt(id_rezerwacji)
+    });
+
+    res.send({ message: "Rezerwacja usunięcia!" });
   } catch (e) {
     console.log(e);
   }

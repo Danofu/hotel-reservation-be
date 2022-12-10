@@ -27,7 +27,9 @@ export class Jedzenie {
   @JoinColumn({ name: "id_menu", referencedColumnName: "id" })
   menu: Menu;
 
-  @ManyToOne(() => Rezerwacja, (rezerwacja) => rezerwacja.jedzenie)
+  @ManyToOne(() => Rezerwacja, (rezerwacja) => rezerwacja.jedzenie,{
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: "id_rezerwacji", referencedColumnName: "id" })
   rezerwacja: Rezerwacja;
 
