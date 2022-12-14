@@ -55,7 +55,7 @@ export const register = async (
 
     await userRepository.save({
       first_name,
-      last_Name: last_name,
+      last_name: last_name,
       password: encryptPass,
       access_token: token,
       email,

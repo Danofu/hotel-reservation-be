@@ -12,6 +12,7 @@ export const getAllPokoj = async (
   const pokoje: Kategorja[] = await kategorjaRepository.find(
     {
       select: {
+        id: true,
         kategorja: true,
         ilosc_miejsc: true,
         ilosc_mieszkan: true,
