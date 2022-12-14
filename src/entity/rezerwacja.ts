@@ -35,7 +35,7 @@ export class Rezerwacja {
   @Column()
   check_out: Date;
 
-  @Column()
+  @Column({ type: 'float'})
   suma: number;
 
   @ManyToOne(() => User, (user) => user.rezerwacja)
@@ -49,10 +49,6 @@ export class Rezerwacja {
   @ManyToOne(() => Pokoj, (pokoj) => pokoj.rezerwacja)
   @JoinColumn({ name: "id_pokoj", referencedColumnName: "id" })
   pokoj: Pokoj;
-
- /* @ManyToOne(() => Jedzenie, (jedzenie) => jedzenie.rezerwacja)
-  @JoinColumn({ name: "id_zamowienia", referencedColumnName: "id" })
-  jedzenie: Jedzenie;*/
 
   @OneToMany(
     () => Jedzenie,
