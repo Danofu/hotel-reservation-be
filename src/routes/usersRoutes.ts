@@ -25,7 +25,6 @@ export class UsersRoute extends RouteConfig {
       .route("/api/user/me")
       .get([
         checkToken,
-        query("token").isString(),
         requestValidationMiddleware.verifyBodyOrQueryFieldsErrors,
         controller.getUserByToken,
       ]);

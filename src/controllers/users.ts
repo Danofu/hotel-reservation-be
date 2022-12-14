@@ -38,20 +38,11 @@ export const getUserById = async (
 };
 
 export const getUserByToken = async (
-  req: Request<{}, {}, {}, { token: string }>,
+  req: Request,
   res: Response
 ): Promise<void> => {
-  try {
-    const { token } = req.query;
-
-    const user = await userRepository.findOne({
-      where: { access_token: token },
-    });
 
     res.status(200).send({
-      user,
+      user: req.user,
     });
-  } catch (e) {
-    console.log(e);
-  }
 };
