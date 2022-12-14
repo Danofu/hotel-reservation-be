@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Pracowniki } from "../entity/pracowniki";
 import { AppDataSource } from "../data-source";
-import { Stanowisko } from "src/entity/stanowisko";
+import { Stanowisko } from "../entity/stanowisko";
 
 const pracownikRepository = AppDataSource.getRepository(Pracowniki);
 const stanowiskoRepository = AppDataSource.getRepository(Stanowisko);

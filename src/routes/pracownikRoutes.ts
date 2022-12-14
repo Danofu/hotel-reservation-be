@@ -1,6 +1,6 @@
 import { Application } from 'express';
 import { RouteConfig } from '../utils/routeConfig';
-import * as controller from '../controllers/jedzenie';
+import * as controller from '../controllers/pracownik';
 import { body } from 'express-validator';
 import requestValidationMiddleware from '../utils/body.validation.middleware';
 
@@ -20,7 +20,7 @@ export class PracownikRoute extends RouteConfig {
         body('data_urodzenia').isDate(),
         body('stanowisko').isString(),
         requestValidationMiddleware.verifyBodyOrQueryFieldsErrors,
-        controller.postJedzenie);
+        controller.postPracownik);
 
     return this.app;
   }
