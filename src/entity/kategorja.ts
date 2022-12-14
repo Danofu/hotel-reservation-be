@@ -24,7 +24,7 @@ export class Kategorja {
   @Column()
   dodatkowa_informacja: string;
 
-  @Column()
+  @Column({ type: 'float'})
   cena: number;
 
   @OneToMany(

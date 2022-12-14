@@ -17,7 +17,7 @@ export class Menu {
   @Column()
   kalorycznosc: number;
 
-  @Column()
+  @Column({ type: 'float'})
   cena: number;
 
   @OneToMany(
