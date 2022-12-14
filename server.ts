@@ -15,6 +15,7 @@ const app = express();
   const RezerwacjaRoute = require('./src/routes/rezerwacjaRoutes');
   const JedzenieRoute = require('./src/routes/jedzenieRoutes');
   const PokojRoute = require('./src/routes/pokojRoutes');
+  const PracownikRoute = require('./src/routes/pracownikRoutes');
   app.use(cookieParser());
   app.enable('trust proxy');
   app.use(bodyParser.json());
@@ -32,6 +33,7 @@ const app = express();
   routes.push(new RezerwacjaRoute(app));
   routes.push(new JedzenieRoute(app));
   routes.push(new PokojRoute(app));
+  routes.push(new PracownikRoute(app));
 
   const PORT = 8081;
 
