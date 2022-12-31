@@ -4,7 +4,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { RouteConfig } from './src/utils/routeConfig';
-import passport from 'passport'
+const docs = require('./src/docs');
+import swaggerUI from 'swagger-ui-express';
 
 const app = express();
 
@@ -38,6 +39,7 @@ const app = express();
   const PORT = 8081;
 
   app.listen(PORT, () => {
+    app.use('/swagger', swaggerUI.serve, swaggerUI.setup(docs));
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
   });
