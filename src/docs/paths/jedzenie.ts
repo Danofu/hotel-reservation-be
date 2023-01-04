@@ -20,5 +20,16 @@ module.exports = {
         }
       },
     },
+    get: {
+      parameters: [
+      ],
+      tags: ["Jedzenie"],
+      summary: "Get All Jedzenie",
+      responses: {
+        200: {
+          description: "OK",
+        },
+      },
+    },
   },
 };

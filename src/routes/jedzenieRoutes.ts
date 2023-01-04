@@ -17,7 +17,8 @@ export class JedzenieRoute extends RouteConfig {
         body('kalorycznosc').isInt(),
         body('cena').isNumeric(),
         requestValidationMiddleware.verifyBodyOrQueryFieldsErrors,
-        controller.postJedzenie);
+        controller.postJedzenie)
+      .get(controller.getJedzenie);
 
     return this.app;
   }

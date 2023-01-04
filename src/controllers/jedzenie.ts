@@ -24,3 +24,26 @@ export const postJedzenie = async (
     console.log(e);
   }
 };
+
+export const getJedzenie = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+
+    const menu = await menuRepository.find({
+      select: {
+        id: true,
+        nazwa: true,
+        kalorycznosc: true,
+        cena: true
+      }
+    });
+
+    res.status(200).send({
+      menu,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};

@@ -12,7 +12,7 @@
       "@types/node": "^16.18.1",
       "@types/passport": "^1.0.11",
       "ts-node": "10.7.0",
-      "typescript": "4.5.2"
+      "typescript": "^4.9.4"
    },
    "dependencies": {
       "@types/jsonwebtoken": "^8.5.9",
@@ -31,12 +31,15 @@
       "pg": "^8.4.0",
       "reflect-metadata": "^0.1.13",
       "swagger-ui-express": "^4.6.0",
+      "typedoc": "^0.23.23",
       "typeorm": "0.3.10"
    },
    "scripts": {
       "start": "ts-node src/data-source.ts",
       "start:compute": "ts-node --transpile-only -r dotenv/config server",
       "dev": "nodemon --exec \"npm run start:compute\"",
-      "typeorm": "typeorm-ts-node-commonjs -d src/data-source.ts"
+      "typeorm": "typeorm-ts-node-commonjs -d src/data-source.ts",
+      "docs:dev": "typedoc --watch",
+      "docs:gen": "typedoc"
    }
 }

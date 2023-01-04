@@ -19,7 +19,7 @@ export const rezarwacja = async (
       id_user: number;
       check_in: Date;
       check_out: Date;
-      menu?: string[];
+      menu?: number[];
     }
   >,
   res: Response
@@ -53,10 +53,10 @@ export const rezarwacja = async (
     });
 
     if (req.body.menu) {
-      req.body.menu.map(async (nazwa) => {
+      req.body.menu.map(async (id) => {
         const menu: Menu = await menuRepository.findOne({
           where: {
-            nazwa: nazwa,
+            id: id,
           },
         });
 

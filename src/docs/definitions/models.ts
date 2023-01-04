@@ -113,6 +113,12 @@ module.exports = {
         type: 'string',
         format: 'date-time',
       },
+      menu: {
+        type: 'array',
+        items: {
+          type: 'number',
+        },
+      }
     },
   },
 };
