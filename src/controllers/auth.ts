@@ -7,6 +7,14 @@ import * as bycrypt from 'bcryptjs';
 const userRepository = AppDataSource.getRepository(User);
 
 //function of validation
+
+/**
+ * It's a function of validation user
+ * 
+ * @param email it's a e-mail of user
+ * @param password It's a password of user
+ * @returns message and boolean isValidated
+ */
 const validate = (email: string, password: string) => {
   let message = null;
   let isValidated = false;
@@ -24,7 +32,12 @@ const validate = (email: string, password: string) => {
   return { message, isValidated: true };
 };
 
-//registration users in hotel database
+/**
+ * 
+ * @param req Request with body password, first_name, last_name, email
+ * @param res Response with status 200 or 403
+ * @returns message: 'User registered successfully'
+ */
 export const register = async (
   req: Request<
     {},
@@ -70,6 +83,13 @@ export const register = async (
 };
 
 //authentification users in hotel database
+/**
+ * It's an authentification users in hotel database
+ * 
+ * @param req Request with body password, email
+ * @param res Response with status 200 or 400
+ * @returns tocken and message: 'Incorrect email or password.' or message: 'Logged in successfully'
+ */
 export const login = async (
   req: Request<{}, {}, { email: string; password: string }>,
   res: Response,

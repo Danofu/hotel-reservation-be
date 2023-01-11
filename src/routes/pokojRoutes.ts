@@ -4,10 +4,18 @@ import * as controller from '../controllers/pokoj';
 import { body } from 'express-validator';
 import requestValidationMiddleware from '../utils/body.validation.middleware';
 
+/**
+ * This class PokojRoute
+ */
 export class PokojRoute extends RouteConfig {
   constructor(app: Application) {
     super(app, 'PokojRoute');
   }
+  /**
+   * function configureRoutes()
+   * 
+   * @returns route pokoj
+   */
 
   configureRoutes() {
     this.app

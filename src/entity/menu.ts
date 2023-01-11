@@ -6,6 +6,9 @@ import {
 } from "typeorm";
 import { Jedzenie } from "./jedzenie";
 
+/**
+ * model Menu
+ */
 @Entity("menu")
 export class Menu {
   @PrimaryGeneratedColumn()

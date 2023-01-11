@@ -1,5 +1,8 @@
 import {Application} from 'express';
 
+/**
+ * class RouteConfig
+ */
 export abstract class RouteConfig {
   app: Application
   name: string
@@ -8,6 +11,11 @@ export abstract class RouteConfig {
     this.name = name
     this.configureRoutes()
   }
+  /**
+   * function getName()
+   * 
+   * @returns name
+   */
   getName() {
     return this.name
   }

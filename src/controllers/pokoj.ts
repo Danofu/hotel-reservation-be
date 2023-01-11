@@ -6,6 +6,12 @@ import { Kategorja } from "../entity/kategorja";
 const pokojRepository = AppDataSource.getRepository(Pokoj);
 const kategorjaRepository = AppDataSource.getRepository(Kategorja);
 
+/**
+ * It's endpoint with post Pokoj
+ * 
+ * @param req Request with body kategorja, ilosc_miejsc, ilosc_mieszkan, dodatkowa_informacja, cena
+ * @param res Response with result
+ */
 export const postPokoj = async (
   req: Request<
     {},

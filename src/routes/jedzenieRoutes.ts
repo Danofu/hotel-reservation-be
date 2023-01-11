@@ -4,11 +4,21 @@ import * as controller from '../controllers/jedzenie';
 import { body } from 'express-validator';
 import requestValidationMiddleware from '../utils/body.validation.middleware';
 
+/**
+ * It's a class of route Jedzenie
+ * 
+ * @class JedzenieRoute
+ */
 export class JedzenieRoute extends RouteConfig {
   constructor(app: Application) {
     super(app, 'JedzenieRoute');
   }
 
+    /**
+   * function configureRoutes()
+   * 
+   * @returns route Jedzenie
+   */
   configureRoutes() {
     this.app
       .route('/api/jedzenie')

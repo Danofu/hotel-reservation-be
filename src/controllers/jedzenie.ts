@@ -4,6 +4,12 @@ import { Menu } from "../entity/menu";
 
 const menuRepository = AppDataSource.getRepository(Menu);
 
+/**
+ * It's endpoind with post Jedzenie in table
+ * 
+ * @param req Request with body nazwa, kalorycznosc, cena
+ * @param res Response with object Jedzenie
+ */
 export const postJedzenie = async (
   req: Request<{}, {}, { nazwa: string, kalorycznosc: number, cena: number }>,
   res: Response
@@ -25,6 +31,12 @@ export const postJedzenie = async (
   }
 };
 
+/**
+ * It's endpoint get all Jedzenie
+ * 
+ * @param req Request with no any body or any query
+ * @param res Response return all Jedzenie from DB
+ */
 export const getJedzenie = async (
   req: Request,
   res: Response

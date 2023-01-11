@@ -9,6 +9,9 @@ import {
 import { Rezerwacja } from "./rezerwacja";
 import { Stanowisko } from "./stanowisko";
 
+/**
+ * model Pracowniki
+ */
 @Entity("pracowniki")
 export class Pracowniki {
   @PrimaryGeneratedColumn()

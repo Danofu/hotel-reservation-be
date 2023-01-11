@@ -9,7 +9,9 @@ import {
 import { Kategorja } from "./kategorja";
 import { Rezerwacja } from "./rezerwacja";
 
-
+/**
+ * model Pokoj
+ */
 @Entity("pokoj")
 export class Pokoj {
   @PrimaryGeneratedColumn()

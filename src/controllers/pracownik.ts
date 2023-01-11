@@ -6,6 +6,13 @@ import { Stanowisko } from "../entity/stanowisko";
 const pracownikRepository = AppDataSource.getRepository(Pracowniki);
 const stanowiskoRepository = AppDataSource.getRepository(Stanowisko);
 
+/**
+ * It's endpoint with post Pracownik
+ * 
+ * @param req Request with body imie, nazwisko,
+ * pensja, wyksztalcenie, data_urodzenia, stanowisko
+ * @param res Response with employee
+ */
 export const postPracownik = async (
   req: Request<
     {},

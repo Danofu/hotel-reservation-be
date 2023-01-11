@@ -4,10 +4,21 @@ import * as controller from '../controllers/auth';
 import { body } from 'express-validator';
 import requestValidationMiddleware from '../utils/body.validation.middleware';
 
+/**
+ * It's a class of route auth
+ * 
+ * @class AuthRoute
+ */
 export class AuthRoute extends RouteConfig {
   constructor(app: Application) {
     super(app, 'AuthRoute');
   }
+
+    /**
+   * function configureRoutes()
+   * 
+   * @returns route auth
+   */
 
   configureRoutes() {
     this.app

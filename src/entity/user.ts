@@ -1,6 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 import { Rezerwacja } from "./rezerwacja"
 
+/**
+ * model User
+ */
 @Entity('users')
 export class User {
 

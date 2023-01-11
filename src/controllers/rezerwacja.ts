@@ -10,6 +10,13 @@ const pokojRepository = AppDataSource.getRepository(Pokoj);
 const menuRepository = AppDataSource.getRepository(Menu);
 const jedzenieRepository = AppDataSource.getRepository(Jedzenie);
 
+/**
+ * Main controller with post rezerwation
+ * 
+ * @param req Request with body id_pokoj, id_user, check_in, check_out and optional menu
+ * @param res Response with message: "Reservation success!"
+ */
+
 export const rezarwacja = async (
   req: Request<
     {},
@@ -81,6 +88,13 @@ export const rezarwacja = async (
   }
 };
 
+/**
+ * Controller that get all rezerwation from table public.rezerwacja in posgreSQL
+ * 
+ * @param req Request with query id_user
+ * @param res Response return all rezerwations by user_id
+ */
+
 export const getAllRezerwation = async (
   req: Request<{}, {}, {}, { id_user: string }>,
   res: Response
@@ -103,6 +117,13 @@ export const getAllRezerwation = async (
     console.log(e);
   }
 };
+
+/**
+ * Controller that delete rezerwation from table public.rezerwacja
+ * 
+ * @param req Request with query id_rezerwacji
+ * @param res Response with message: "Rezerwacja usunięcia!"
+ */
 
 export const deleteRezerwationById = async (
   req: Request<{}, {}, {}, { id_rezerwacji: string }>,

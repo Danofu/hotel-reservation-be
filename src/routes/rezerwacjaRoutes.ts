@@ -4,10 +4,19 @@ import * as controller from "../controllers/rezerwacja";
 import { body, query } from "express-validator";
 import requestValidationMiddleware from "../utils/body.validation.middleware";
 
+/**
+ * It's a class of Rezerwacja route
+ */
 export class RezerwacjaRoute extends RouteConfig {
   constructor(app: Application) {
     super(app, "RezerwacjaRoute");
   }
+
+  /**
+   * function configureRoutes()
+   *
+   * @returns route Rezerwacja
+   */
 
   configureRoutes() {
     this.app

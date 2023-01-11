@@ -4,10 +4,19 @@ import * as controller from '../controllers/pracownik';
 import { body } from 'express-validator';
 import requestValidationMiddleware from '../utils/body.validation.middleware';
 
+/**
+ * It's a class of Paracownik route
+ */
 export class PracownikRoute extends RouteConfig {
   constructor(app: Application) {
     super(app, 'PracownikRoute');
   }
+
+  /**
+   * function configureRoutes()
+   * 
+   * @returns route Paracownik
+   */
 
   configureRoutes() {
     this.app

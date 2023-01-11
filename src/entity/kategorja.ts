@@ -6,7 +6,9 @@ import {
 } from "typeorm";
 import { Pokoj } from "./pokoj";
 
-
+/**
+ * model Kategorja
+ */
 @Entity("kategorja")
 export class Kategorja {
   @PrimaryGeneratedColumn()

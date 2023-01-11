@@ -4,6 +4,10 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
+/**
+ * AppDataSource
+ */
+
 export const AppDataSource = new DataSource({
     type: "postgres",
     host: process.env.HOST,

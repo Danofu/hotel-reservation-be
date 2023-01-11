@@ -11,7 +11,9 @@ import { Pokoj } from "./pokoj";
 import { Pracowniki } from "./pracowniki";
 import { User } from "./user";
 
-
+/**
+ * model Rezerwacja
+ */
 @Entity("rezerwacja")
 export class Rezerwacja {
   @PrimaryGeneratedColumn()

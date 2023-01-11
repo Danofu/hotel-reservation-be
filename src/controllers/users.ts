@@ -4,6 +4,12 @@ import { User } from "../entity/user";
 
 const userRepository = AppDataSource.getRepository(User);
 
+/**
+ * It's endpoint get all users in DB
+ * 
+ * @param req Request without any params
+ * @param res Response return all users from table users
+ */
 export const getAllusers = async (
   req: Request,
   res: Response
@@ -20,6 +26,12 @@ export const getAllusers = async (
   }
 };
 
+/**
+ * It's endpoint get user by id
+ * 
+ * @param req Request with body id
+ * @param res Response return all information about user
+ */
 export const getUserById = async (
   req: Request<{}, {}, {}, { id: string }>,
   res: Response
@@ -37,6 +49,12 @@ export const getUserById = async (
   }
 };
 
+/**
+ * It's endpoint get user by token
+ * 
+ * @param req Request without any params
+ * @param res Response return user by token
+ */
 export const getUserByToken = async (
   req: Request,
   res: Response

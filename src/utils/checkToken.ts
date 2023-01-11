@@ -6,9 +6,21 @@ import { User } from '../entity/user';
 import { AppDataSource } from '../data-source';
 const userRepository = AppDataSource.getRepository(User);
 
+/**
+ * Interface AuthRequest from Request
+ */
 export interface AuthRequest extends Request {
   user: User;
 }
+
+/**
+ * It's check token of user
+ * 
+ * @param req AuthRequest
+ * @param res Response
+ * @param next NextFunction
+ * @returns 
+ */
 
 export const checkToken = async (
   req: AuthRequest,

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "src/entity/jedzenie.ts",
+    "src/entity/kategorja.ts",
+    "src/entity/menu.ts",
+    "src/entity/pokoj.ts",
+    "src/entity/pracowniki.ts",
+    "src/entity/rezerwacja.ts",
+    "src/entity/stanowisko.ts",
+    "src/entity/user.ts",
+    "src/controllers/pokoj.ts",
+    "src/controllers/pracownik.ts",
+    "src/controllers/kategorja.ts",
+    "src/controllers/jedzenie.ts",
+    "src/controllers/auth.ts",
+    "src/controllers/rezerwacja.ts",
+    "src/controllers/users.ts",
+    "src/utils/checkToken.ts",
+    "src/utils/common.ts",
+    "src/utils/routeConfig.ts",
+    "src/routes/authRoutes.ts",
+    "src/routes/jedzenieRoutes.ts",
+    "src/routes/kategorjaRoutes.ts",
+    "src/routes/pokojRoutes.ts",
+    "src/routes/pracownikRoutes.ts",
+    "src/routes/rezerwacjaRoutes.ts",
+    "src/routes/usersRoutes.ts",
+    "src/data-source.ts"
+  ],
+  "out": "doc",
+  "excludeNotDocumented": false,
+  "externalSymbolLinkMappings": {
+    "@mui/material": {
+      "ButtonProps": "https://mui.com/material-ui/api/button/#props",
+      "IconButtonProps": "https://mui.com/material-ui/api/icon-button/#props",
+      "TooltipProps": "https://mui.com/material-ui/api/tooltip/#props"
+    },
+    "@types/lodash": {
+      "GetFieldType": "https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/lodash/common/object.d.ts#L1041"
+    },
+    "@types/react": {
+      "ReactElement": "https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts#L141"
+    },
+    "axios": {
+      "AxiosInstance": "https://github.com/axios/axios/blob/main/index.d.ts#L295",
+      "AxiosRequestConfig": "https://github.com/axios/axios/blob/main/index.d.ts#L183",
+      "AxiosResponse": "https://github.com/axios/axios/blob/main/index.d.ts#L246"
+    },
+    "global": {
+      "Exclude": "https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers",
+      "Omit": "https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys",
+      "Partial": "https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype",
+      "Pick": "https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys",
+      "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+      "Storage": "https://developer.mozilla.org/en-US/docs/Web/API/Storage"
+    },
+    "lodash": {
+      "GetFieldType": "https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/lodash/common/object.d.ts#L1041"
+    },
+    "react": {
+      "ReactElement": "https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts#L141"
+    },
+    "react-router-dom": {
+      "LinkProps": "https://reactrouter.com/en/main/components/link"
+    },
+    "typescript": {
+      "Exclude": "https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers",
+      "Omit": "https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys",
+      "Partial": "https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype",
+      "Pick": "https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys",
+      "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+      "Storage": "https://developer.mozilla.org/en-US/docs/Web/API/Storage"
+    }
+  },
+  "name": "\"Hotels & Booking\" Technical Documentation",
+  "navigationLinks": {
+    "GitHub": "https://github.com/Danofu/hotel-reservation-fe"
+  },
+  "sort": ["kind", "alphabetical"],
+  "watch": false
+}
