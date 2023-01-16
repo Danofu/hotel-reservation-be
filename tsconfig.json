@@ -19,6 +19,7 @@
       "baseUrl": ".",
       "isolatedModules": false,
       "resolveJsonModule": true,
+      "types": ["jest", "node", "reflect-metadata", "chai", "mocha"]
    },
    "typedocOptions": {
       "entryPoints": [
@@ -51,5 +52,5 @@
        ],
        "out": "doc",
    },
-   "include": ["src"]
+   "include": ["src", "tests/*.ts"]
 }
